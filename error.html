@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Not Found</title>
+    <link rel="icon" type="icon" href="file/image/icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+                <img src="file/image/icon.png" alt="logo" class="logo">
+                <span class="brand-text">Bakahung</span>
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" role="navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section style="min-height:60vh;display:flex;align-items:center;justify-content:center;padding:3rem;">
+            <div style="text-align:center;max-width:760px;">
+                <div style="font-size:120px;line-height:1;color:var(--lavender);font-weight:700;">404</div>
+                <h1 style="margin:0.5rem 0 1rem;color:var(--text);">Page Not Found</h1>
+                <p style="color:var(--muted);margin-bottom:1.25rem">Sorry — the page you were looking for doesn't exist or has been moved. Try returning home or checking other pages.</p>
+
+                <p class="btn-row" style="justify-content:center;">
+                    <a class="btn btn-primary" href="index.html">Home</a>
+                    <a class="btn btn-secondary" href="contact.html">Contact</a>
+                    <a class="btn btn-ghost" href="news.html">Latest</a>
+                </p>
+
+                <p style="margin-top:1.25rem;color:var(--muted)">Or use your browser's back button to return.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- overlay DOM present so transition works when navigating to/from other pages -->
+    <div id="page-overlay" class="page-overlay">
+      <div class="overlay-inner">
+        <svg class="overlay-spinner" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+
+    <script src="scipt.js"></script>
+</body>
+</html>

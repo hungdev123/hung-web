@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakahung</title>
+    <link rel="icon" type="icon" href="file/image/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+                <img src="file/image/icon.png" alt="logo" class="logo">
+                <span class="brand-text">Bakahung</span>
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" role="navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact form -->
+        <section style="padding:2rem;color:#e6eef6;">
+            <div class="contact-wrapper" style="max-width:900px;margin:0 auto;">
+                <h1 style="color:var(--text);margin-bottom:0.25rem">Get in touch</h1>
+                <p style="color:var(--muted);margin-top:0;margin-bottom:1rem">Have a question or want to work together? Send a message — I'll reply as soon as I can.</p>
+
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xyzwznnl" method="POST">
+                    <!-- Plain HTML submission to Formspree (no JavaScript). Replace the _next URL if you want a custom redirect. -->
+                    <input type="hidden" name="_subject" value="New contact from Bakahung site">
+                    <input type="hidden" name="_next" value="index.html">
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <input id="subject" name="subject" type="text" placeholder="Short subject" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-message" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary">Send message</button>
+                        <a class="btn btn-ghost" href="index.html">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+        <!-- Page transition overlay (shared) -->
+        <div id="page-overlay" class="page-overlay">
+            <div class="overlay-inner">
+                <svg class="overlay-spinner" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+            </div>
+        </div>
+
+        <script src="scipt.js"></script>
+</body>
+</html>

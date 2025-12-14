@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+:root{
+    /* Catppuccin Macchiato palette (selected tokens) */
+    --rosewater: #F4DBD6;
+    --flamingo:  #F0C6C6;
+    --pink:      #F5BDE6;
+    --mauve:     #C6A0F6;
+    --red:       #ED8796;
+    --peach:     #F8BD96;
+    --yellow:    #EED49F;
+    --green:     #A6DA95;
+    --teal:      #8BD5CA;
+    --sky:       #91D7E3;
+    --sapphire:  #7DC4E4;
+    --blue:      #8AADF4;
+    --lavender:  #B7BDF8;
+
+    /* greys / surfaces */
+    --text:      #CAD3F5; /* primary text */
+    --muted:     #B8C0E0; /* secondary text */
+    --surface0:  #24273A; /* base background */
+    --surface1:  #363A4F; /* elevated */
+    --overlay0:  rgba(54,58,79,0.7);
+
+    /* semantic tokens used by our layout */
+    --bg: var(--surface0);
+    --nav-bg: var(--surface1);
+    --accent: var(--mauve);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body {
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, 'Segoe UI', Comfortaa, 'Helvetica Neue', Arial;
+    background-color: var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+}
+
+/* Navbar */
+.navbar{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:0.6rem 0.8rem; /* give some outer spacing so inner rounded container shows */
+    background: transparent;
+}
+.nav-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.45rem 1rem;
+    background: rgba(54,58,79,0.45); /* semi-transparent surface */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius:12px; /* rounded corners */
+    border:1px solid rgba(255,255,255,0.04); /* subtle border */
+}
+.brand{display:flex;align-items:center;text-decoration:none;color:var(--text)}
+.logo{width:36px;height:36px;object-fit:contain;margin-right:0.6rem}
+.brand-text{font-weight:600;letter-spacing:0.2px}
+
+.nav-links ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.nav-links a{color:var(--text);text-decoration:none;padding:0.6rem 0.75rem;border-radius:6px;display:inline-block}
+.nav-links a:hover{color:var(--accent)}
+
+/* Animated underline for navbar links */
+.nav-links a{position:relative;overflow:visible}
+.nav-links a::after{content:'';position:absolute;left:14%;right:14%;bottom:6px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left center;transition:transform .18s cubic-bezier(.2,.9,.2,1);border-radius:2px}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+
+@media (max-width:780px){
+    /* for stacked mobile links, place underline a little lower */
+    .nav-links a::after{left:8%;right:8%;bottom:10px}
+}
+
+.hamburger{display:none;background:transparent;border:0;cursor:pointer;padding:0.4rem;border-radius:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+
+/* Responsive */
+@media (max-width:780px){
+    .nav-links{position:absolute;top:72px;left:0;right:0;background:var(--nav-bg);max-height:0;overflow:hidden}
+    .nav-links.open{max-height:240px}
+    .nav-links ul{flex-direction:column;padding:0.5rem 1rem;gap:0.2rem}
+    .hamburger{display:block}
+}
+
+/* Small utility */
+a.active{color:var(--accent)}
+
+/* Global anchor/link decoration */
+a{
+    color:var(--blue);
+    text-decoration:none;
+    transition:color .16s ease, text-decoration-color .16s ease, text-underline-offset .16s ease;
+}
+a:visited{color:var(--lavender)}
+a:hover, a:focus{
+    color:var(--mauve);
+    text-decoration: underline;
+    text-decoration-thickness: 1.4px;
+    text-underline-offset: 3px;
+}
+a:active{color:var(--peach)}
+
+/* Clear hover / pressed (active) states for interactive elements */
+a:focus-visible{outline:3px solid rgba(198,160,246,0.18);outline-offset:3px}
+
+/* Nav links: subtle background on hover, pressed inset effect */
+.nav-links a{transition:background .12s ease, color .12s ease, transform .06s ease}
+.nav-links a:hover{background:rgba(255,255,255,0.03);color:var(--accent)}
+.nav-links a:active{transform:translateY(1px);opacity:0.95}
+
+/* Buttons: hover brighten, active pressed state */
+.btn{transition:transform .08s ease, box-shadow .12s ease, filter .12s ease}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(1px) scale(0.996);box-shadow:inset 0 2px 6px rgba(0,0,0,0.12)}
+.btn:focus-visible{outline:3px solid rgba(198,160,246,0.2);outline-offset:3px}
+
+/* content spacing when nav sticky */
+main{padding-top:1rem}
+
+/* Main image alignment: place the first image in <main> on the right and shift it 100px */
+/* Main image alignment: place the first image in <main> on the right and shift it 100px to the left */
+main img:first-of-type{
+    float: right;
+    max-width: 40%;
+    margin-left: 1rem;
+    display: block;
+    transform: translateX(-100px);
+}
+
+@media (max-width:780px){
+    main img:first-of-type{
+        float: none;
+        transform: none;
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:10px;padding:0.6rem 1rem;margin-top:0.6rem}
+.btn-primary{background:var(--mauve);color:var(--surface0);border:1px solid rgba(0,0,0,0.06)}
+.btn-primary:focus{outline:2px solid rgba(198,160,246,0.25);outline-offset:2px}
+
+/* Variants */
+.btn + .btn{margin-left:0.6rem}
+.btn-secondary{background:var(--blue);color:var(--surface0);border:1px solid rgba(0,0,0,0.06)}
+.btn-success{background:var(--green);color:var(--surface0);border:1px solid rgba(0,0,0,0.06)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06)}
+
+/* Hover states (subtle, accessible) */
+.btn-primary:hover, .btn-secondary:hover, .btn-success:hover{
+    filter:brightness(1.08);
+}
+
+/* SVG icons inside buttons */
+.btn svg{width:1em;height:1em;vertical-align:middle;margin-right:0.5rem;stroke-width:1.5}
+.btn svg[fill]{fill:currentColor}
+
+.btn:focus{outline:2px solid rgba(255,255,255,0.06);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+    .btn{transition:none}
+}
+
+/* make button-row wrap nicely on small screens */
+.btn-row{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center}
+.btn-row .btn{margin-top:0}
+
+main section {
+    position: relative;
+}
+
+/* About layout: side-by-side .about_hung (left) and .about_web (right) */
+.about-row{display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap}
+.about_hung{flex:1 1 60%;background-color:var(--surface1);padding:15px;border-radius:18px}
+.about_web{flex:0 0 320px;background-color:var(--surface1);padding:15px;border-radius:18px}
+
+@media (max-width:880px){
+    .about-row{flex-direction:column}
+    .about_hung,.about_web{flex-basis:auto;width:100%}
+}
+
+.about_web {
+    width: 45%;
+    background-color: var(--surface1);
+    padding: 15px;
+    border-radius: 30px;
+}
+
+/* Contact form styles */
+.contact-wrapper{margin-top:0}
+.contact-form{background:transparent;padding:0}
+.contact-form .form-row{margin-bottom:0.85rem;display:flex;flex-direction:column}
+.contact-form label{font-size:0.9rem;color:var(--muted);margin-bottom:0.35rem}
+.contact-form label .required{color:var(--red);margin-left:0.28rem}
+.contact-form input,.contact-form textarea{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:var(--text);padding:0.6rem 0.8rem;border-radius:8px;font-size:0.95rem}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;box-shadow:0 0 0 3px rgba(198,160,246,0.06);border-color:var(--mauve)}
+.contact-form textarea{resize:vertical;min-height:120px}
+.form-message{min-height:1.2rem;color:var(--muted);font-size:0.95rem}
+.form-message.success{color:var(--green)}
+.form-message.error{color:var(--red)}
+
+@media (max-width:600px){
+    .contact-wrapper{padding:0 0.5rem}
+}
+
+/* Page transition overlay */
+.page-overlay{
+        position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+        background: var(--surface0); /* fallback */
+        color:var(--text);
+        transition:opacity .36s ease, visibility .36s ease;
+}
+.page-overlay .overlay-inner{display:flex;align-items:center;justify-content:center;padding:1rem}
+.page-overlay .overlay-spinner{width:48px;height:48px;animation:spin 1s linear infinite;opacity:0.95}
+.page-overlay.overlay-hidden{opacity:0;visibility:hidden;pointer-events:none}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){
+    .page-overlay .overlay-spinner{animation:none}
+}

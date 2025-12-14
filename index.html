@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakahung</title>
+    <link rel="icon" type="icon" href="file/image/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+                <img src="file/image/icon.png" alt="logo" class="logo">
+                <span class="brand-text">Bakahung</span>
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" role="navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <br><br><br><br><br>
+
+        <img src="file/gif/quby-high-five.gif" alt="hi">
+
+        <!-- Page content placeholder -->
+        <section style="padding:2rem;color:#e6eef6;">
+            <h1 class="animate__animated animate__bounceInDown">Welcome to Bakahung's site!</h1>
+            <h3 class="animate__animated animate__fadeInLeft " style="animation-delay: 1s;">My name's Hưng, from Vietnam.<br>Just using Linux for life, uwu.</h3>
+            <p class="btn-row">
+                <a class="btn btn-primary" href="contact.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
+                    Get in touch!
+                </a>
+                <a class="btn btn-secondary" href="news.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Reading something...
+                </a>
+                <a class="btn btn-success" href="about.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    Who is Bakahung?
+                </a>
+            </p>
+        </section>
+    </main>
+
+        <!-- Page transition overlay (shows while navigating between pages) -->
+        <div id="page-overlay" class="page-overlay">
+            <div class="overlay-inner">
+                <svg class="overlay-spinner" viewBox="0 0 50 50" aria-hidden="true" focusable="false"><circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+            </div>
+        </div>
+
+        <script src="scipt.js"></script>
+</body>
+</html>
