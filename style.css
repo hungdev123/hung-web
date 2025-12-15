@@ -54,7 +54,6 @@ body {
     align-items:center;
     justify-content:space-between;
     padding:0.45rem 1rem;
-    background: rgba(54,58,79,0.45); /* semi-transparent surface */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius:12px; /* rounded corners */
