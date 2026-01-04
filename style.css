@@ -158,6 +158,10 @@ main img:first-of-type{
     filter:brightness(1.08);
 }
 
+.btn-primary:visited, .btn-secondary:visited, .btn-success:visited{
+    color: #cad3f5;
+}
+
 /* SVG icons inside buttons */
 .btn svg{width:1em;height:1em;vertical-align:middle;margin-right:0.5rem;stroke-width:1.5}
 .btn svg[fill]{fill:currentColor}
