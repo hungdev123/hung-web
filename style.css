@@ -38,6 +38,11 @@ body {
     -webkit-font-smoothing:antialiased;
 }
 
+footer {
+    background-color: var(--nav-bg);
+    padding: 10px;
+}
+
 img {
     border-radius: 20px;
 }
